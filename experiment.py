@@ -48,3 +48,10 @@ def experiment(starting_value, button_pin, sensor_pin, led_pin, blue, red, green
 	color("white", blue, red, green)	   
 	time.sleep(5)
 	color("no", blue, red, green)
+
+	
+	sum = 0
+	for i in range(120):
+            sum = sum + adc33.read()
+            time.sleep(0.01)
+        average = sum/12000	
