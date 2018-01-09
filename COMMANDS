@@ -1,0 +1,11 @@
+sudo picocom /dev/ttyUSB0 -b115200 #run the interpreter
+
+sudo ampy --port /dev/ttyUSB0 put httpTest.py httpTest.py #put the file
+
+sudo ampy --port /dev/ttyUSB0 get boot.py # get files, read
+
+exec(open('./draft1.py').read(),globals()) #execute the file
+
+sudo ampy --port /dev/ttyUSB0 ls # listing the files
+
+sudo ampy --port /dev/ttyUSB0 rm code.py #remove file
