@@ -10,7 +10,7 @@ from color import *
 def create_data_file(starting_value, button_pin, sensor_pin, led_pin, blue, red, green,counter):
     button = machine.Pin(button_pin, machine.Pin.IN)#define button pin
     adc33 = ADC(machine.Pin(sensor_pin))#define sensor pin
-    adc33.atten(ADC.ATTN_11DB) #define adc
+    adc33.atten(ADC.ATTN_6DB) #define adc
     dac26 = DAC(machine.Pin(led_pin))#define DAC
     dac26.write(starting_value)#adjust the intensity of the LED
     data=[]
@@ -30,7 +30,7 @@ def create_data_file(starting_value, button_pin, sensor_pin, led_pin, blue, red,
 def experiment(starting_value, button_pin, sensor_pin, led_pin, blue, red, green):
 	button = machine.Pin(button_pin, machine.Pin.IN)#define button pin
 	adc33 = ADC(machine.Pin(sensor_pin))#define sensor pin
-	adc33.atten(ADC.ATTN_11DB) #define adc
+	adc33.atten(ADC.ATTN_6DB) #define adc
 	dac26 = DAC(machine.Pin(led_pin))#define DAC
 	dac26.write(starting_value)#adjust the intensity of the LED
 	data=[]
