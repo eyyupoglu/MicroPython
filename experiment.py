@@ -21,13 +21,12 @@ def create_data_file(starting_value, button_pin, sensor_pin, led_pin, blue, red,
 	    time.sleep(1)
 	    #Take the average of the measurments every 1,2 seconds
 	    sum = 0
-	    for i in range(120):
+	    for i in range(12000):
 	        if button.value() == 1 :
 		    break
 	        sum = sum + adc33.read()
-		print(adc33.read())
 	        time.sleep(0.01)
-	    average = sum/120
+	    average = sum/12000
 	    data.append(average)
 	    f.write("%s\n" % average)
 	    print("\n")
