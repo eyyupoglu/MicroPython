@@ -18,17 +18,20 @@ def create_data_file(starting_value, button_pin, sensor_pin, led_pin, blue, red,
     i=0
     f = open('data'+str(counter), 'w')
     while True:
+	    time.sleep(1)
 	    #Take the average of the measurments every 1,2 seconds
 	    sum = 0
 	    for i in range(120):
 	        if button.value() == 1 :
 		    break
 	        sum = sum + adc33.read()
+		print(adc33.read())
 	        time.sleep(0.01)
 	    average = sum/120
 	    data.append(average)
 	    f.write("%s\n" % average)
-	    print(data[i-1])
+	    print("\n")
+	    print(average)
 	    if button.value()==1:#button is pressed again
 		color("blue", blue, red, green)
 		time.sleep(1)
@@ -56,8 +59,7 @@ def experiment(starting_value, button_pin, sensor_pin, led_pin, blue, red, green
 	color("white", blue, red, green)	   
 	time.sleep(5)
 	color("no", blue, red, green)
-
-	#Take the average of the measurments every 1,2 seconds
+	#Take the of the measurments every 1,2 seconds
 	sum = 0
 	for i in range(120):
 	    if button.value() == 1 :
