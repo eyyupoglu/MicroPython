@@ -1,3 +1,4 @@
+
 import time
 import machine
 from machine import DAC,ADC
@@ -17,9 +18,16 @@ def create_data_file(starting_value, button_pin, sensor_pin, led_pin, blue, red,
     i=0
     f = open('data'+str(counter), 'w')
     while True:
-	    time.sleep(0.1)
-	    data.append(adc33.read())
-	    f.write("%s\n" % adc33.read())#
+	    #Take the average of the measurments every 1,2 seconds
+	    sum = 0
+	    for i in range(120):
+	        if button.value() == 1 :
+		    break
+	        sum = sum + adc33.read()
+	        time.sleep(0.01)
+	    average = sum/120
+	    data.append(average)
+	    f.write("%s\n" % average)
 	    print(data[i-1])
 	    if button.value()==1:#button is pressed again
 		color("blue", blue, red, green)
