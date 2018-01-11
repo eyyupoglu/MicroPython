@@ -1,2 +1,2 @@
 # MicroPython
-Yeast cell counter with light sensor, Neopixels, led and button
+Yeast cell counter with light sensor, Neopixels, led and even a button!!!
